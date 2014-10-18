@@ -1,0 +1,20 @@
+<block>
+	<name>msg processing</name>
+	<key>sandbox_msg_proc</key>
+	<category>Sandbox</category>
+	<import>import sandbox</import>
+  	<make>sandbox.msg_proc()</make>
+
+	<sink>
+		<name>in</name>
+		<type>message</type>
+        	<optional>1</optional>
+	</sink>
+
+	<source>
+		<name>out</name>
+		<type>message</type>
+		<optional>1</optional>
+	</source>
+
+</block>

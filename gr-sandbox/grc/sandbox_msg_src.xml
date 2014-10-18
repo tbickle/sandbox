@@ -1,0 +1,20 @@
+<block>
+  <name>msg file src</name>
+  <key>sandbox_msg_src</key>
+  <category>Sandbox</category>
+  <import>import sandbox</import>
+  <make>sandbox.msg_src()</make>
+
+	<sink>
+		<name>in</name>
+		<type>message</type>
+		<optional>1</optional>
+	</sink>
+
+	<source>
+		<name>out</name>
+		<type>message</type>
+		<optional>1</optional>
+	</source>
+
+</block>

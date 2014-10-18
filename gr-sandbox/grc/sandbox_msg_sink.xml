@@ -1,0 +1,14 @@
+<block>
+  <name>msg sink</name>
+  <key>sandbox_msg_sink</key>
+  <category>Sandbox</category>
+  <import>import sandbox</import>
+  <make>sandbox.msg_sink()</make>
+
+	<sink>
+		<name>print_pdu</name>
+		<type>message</type>
+        	<optional>1</optional>
+	</sink>
+
+</block>
