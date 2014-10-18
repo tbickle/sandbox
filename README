@@ -1,2 +1,19 @@
 branch = develop
-v2.0
+version = v2.0
+
+completed:
+* importing full files at a time
+* dividing files into user defined pdu chunks
+* updating metadata per pdu chunk
+	** pdu_id
+	** last_flg
+	** length
+	** data
+* converting between message and streaming domains
+
+todo:
+* have other blocks monitor values of specific pdu keys and condition off of them
+* add headers
+* byte fill
+* cltu start/tail sequences
+
