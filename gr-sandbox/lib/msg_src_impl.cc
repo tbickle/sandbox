@@ -37,8 +37,7 @@ namespace gr {
     		void msg_src_impl::calc(pmt::pmt_t msg)
     		{
 			////// importing a file //////
-			//char name[9]={'t','e','s','t','.','d','a','t','\0'};
-			//char name[14]={'t','e','s','t','_','n','o','l','f','.','d','a','t','\0'};
+			//char name[7]={'i','n','.','d','a','t','\0'};
 			char name[12]={'i','n','_','n','o','l','f','.','d','a','t','\0'};
 			std::ifstream fl(&name[0]);
 			fl.seekg(0, std::ios::end);
@@ -47,7 +46,6 @@ namespace gr {
 			fl.seekg(0, std::ios::beg);
 			fl.read(ret, len1);
 			fl.close();
-
 			// print file
 			//char* temp; temp = ret;
 			//printf("\nret=");
