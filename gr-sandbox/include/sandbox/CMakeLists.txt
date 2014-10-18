@@ -24,5 +24,6 @@ install(FILES
     api.h
     msg_src.h
     msg_proc.h
-    msg_sink.h DESTINATION include/sandbox
+    msg_sink.h
+    msg_div.h DESTINATION include/sandbox
 )

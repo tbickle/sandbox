@@ -11,6 +11,7 @@
 #include "sandbox/msg_src.h"
 #include "sandbox/msg_proc.h"
 #include "sandbox/msg_sink.h"
+#include "sandbox/msg_div.h"
 %}
 
 
@@ -20,3 +21,5 @@ GR_SWIG_BLOCK_MAGIC2(sandbox, msg_src);
 GR_SWIG_BLOCK_MAGIC2(sandbox, msg_proc);
 %include "sandbox/msg_sink.h"
 GR_SWIG_BLOCK_MAGIC2(sandbox, msg_sink);
+%include "sandbox/msg_div.h"
+GR_SWIG_BLOCK_MAGIC2(sandbox, msg_div);
