@@ -15,14 +15,14 @@ namespace gr {
       			pmt::pmt_t d_out_port;
       			void print_pdu(pmt::pmt_t pdu);
       			gr::thread::mutex d_mutex;
-      			std::vector<pmt::pmt_t> d_messages;
+      			//std::vector<pmt::pmt_t> d_messages;
 
     			public:
       			msg_proc_impl();
       			~msg_proc_impl();
 
-      			int num_messages();
-      			pmt::pmt_t get_message(int i);
+      			//int num_messages();
+      			//pmt::pmt_t get_message(int i);
     };
 
   } // namespace sandbox

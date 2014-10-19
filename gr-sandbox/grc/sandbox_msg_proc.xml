@@ -1,5 +1,5 @@
 <block>
-	<name>msg processing</name>
+	<name>msg header</name>
 	<key>sandbox_msg_proc</key>
 	<category>Sandbox</category>
 	<import>import sandbox</import>
