@@ -38,7 +38,7 @@ namespace gr {
 			/////// size determination //////
 			size_t len = pmt::length(vector);
 			size_t offset(0);
-			int reg_len = 5; 	// <--- USER DEFINED (size of division)
+			int reg_len = 3; 	// <--- USER DEFINED (size of division)
 			int last_len = int(len) % reg_len;
 			//printf("last len=%i\n",last_len);
 			offset = size_t(reg_len);
