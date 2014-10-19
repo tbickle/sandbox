@@ -37,8 +37,10 @@ namespace gr {
 
 			size_t len = pmt::length(vector);
 			//printf("length=%i\n",int(len));
-			const int hdr = 5;			// add header
-			char temp[5] = {'0','0','0','0','0'};	// add header
+			//const int hdr = 5;			// add header
+			//char temp[5] = {'0','0','0','0','0'};	// add header
+			const int hdr = 1;
+			char temp[1] = {'0'};
 
       			const uint8_t* bytes_in = pmt::u8vector_elements(vector, len);
       			uint8_t* bytes_out = (uint8_t*)volk_malloc(hdr + len*sizeof(uint8_t), volk_get_alignment());
@@ -46,9 +48,9 @@ namespace gr {
       			//memcpy((void*)bytes_out, (const void*)bytes_in, len);
 			//memcpy((void*)(bytes_out + len), &temp, hdr); 
 
-			int pos;
-			if(len>hdr) pos=int(len);		// determine position of insertion
-			else pos=int(hdr);
+			int pos = hdr;
+			//if(len>hdr) pos=int(len);		// determine position of insertion
+			//else pos=int(hdr);
 			memcpy((void*)bytes_out, &temp, hdr); 
       			memcpy((void*)(bytes_out+pos), (const void*)bytes_in, len);
 
