@@ -1,4 +1,4 @@
-branch = tmp_dev
+branch = develop
 version = v2.0
 
 completed:
@@ -10,10 +10,10 @@ completed:
 	** length
 	** data
 * converting between message and streaming domains
+* adding TC header
 
 todo:
 * have other blocks monitor values of specific pdu keys and condition off of them
-* add headers
 * byte fill
 * cltu start/tail sequences
 
