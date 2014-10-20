@@ -24,12 +24,12 @@ include(GrPlatform) #define LIB_SUFFIX
 
 include_directories(${Boost_INCLUDE_DIR})
 link_directories(${Boost_LIBRARY_DIRS})
-
 list(APPEND sandbox_sources
     msg_src_impl.cc
-    msg_proc_impl.cc
     msg_sink_impl.cc
     msg_div_impl.cc
+    msg_hdr_fill_impl.cc
+    msg_hdr_tail_impl.cc
 )
 
 set(sandbox_sources "${sandbox_sources}" PARENT_SCOPE)
