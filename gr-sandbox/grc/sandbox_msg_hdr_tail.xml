@@ -1,9 +1,9 @@
 <block>
-	<name>msg header</name>
-	<key>sandbox_msg_proc</key>
-	<category>Sandbox</category>
-	<import>import sandbox</import>
-  	<make>sandbox.msg_proc()</make>
+  <name>msg header + tail</name>
+  <key>sandbox_msg_hdr_tail</key>
+  <category>Sandbox</category>
+  <import>import sandbox</import>
+  <make>sandbox.msg_hdr_tail()</make>
 
 	<sink>
 		<name>in</name>

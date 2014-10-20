@@ -3,7 +3,7 @@
 #endif
 
 #include <gnuradio/io_signature.h>
-#include "msg_proc_impl.h"
+#include "msg_hdr_fill_impl.h"
 #include <cstdio>
 #include <iostream>
 #include <volk/volk.h>
@@ -12,11 +12,11 @@
 namespace gr {
   namespace sandbox {
 
-    		msg_proc::sptr msg_proc::make()
-    		{return gnuradio::get_initial_sptr(new msg_proc_impl());}
+    		msg_hdr_fill::sptr msg_hdr_fill::make()
+    		{return gnuradio::get_initial_sptr(new msg_hdr_fill_impl());}
 
 		// constructor
-    		msg_proc_impl::msg_proc_impl() : block("msg_proc",
+    		msg_hdr_fill_impl::msg_hdr_fill_impl() : block("msg_hdr_fill",
                  	io_signature::make(0, 0, 0),
                  	io_signature::make(0, 0, 0))
     		{
@@ -24,13 +24,13 @@ namespace gr {
       			d_out_port = pmt::mp("out");
       			message_port_register_in(d_in_port);
       			message_port_register_out(d_out_port);
-        		set_msg_handler(d_in_port, boost::bind(&msg_proc_impl::print_pdu, this ,_1));
+        		set_msg_handler(d_in_port, boost::bind(&msg_hdr_fill_impl::print_pdu, this ,_1));
     		}
 
 		// destructor
-    		msg_proc_impl::~msg_proc_impl() {}
+    		msg_hdr_fill_impl::~msg_hdr_fill_impl() {}
 
-    		void msg_proc_impl::print_pdu(pmt::pmt_t pdu)
+    		void msg_hdr_fill_impl::print_pdu(pmt::pmt_t pdu)
     		{
 			pmt::pmt_t meta = pmt::car(pdu);
 			pmt::pmt_t vector = pmt::cdr(pdu);

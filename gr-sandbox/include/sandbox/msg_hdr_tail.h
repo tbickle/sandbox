@@ -19,8 +19,8 @@
  */
 
 
-#ifndef INCLUDED_SANDBOX_MSG_PROC_H
-#define INCLUDED_SANDBOX_MSG_PROC_H
+#ifndef INCLUDED_SANDBOX_MSG_HDR_TAIL_H
+#define INCLUDED_SANDBOX_MSG_HDR_TAIL_H
 
 #include <sandbox/api.h>
 #include <gnuradio/block.h>
@@ -33,17 +33,17 @@ namespace gr {
      * \ingroup sandbox
      *
      */
-    class SANDBOX_API msg_proc : virtual public gr::block
+    class SANDBOX_API msg_hdr_tail : virtual public gr::block
     {
      public:
-      typedef boost::shared_ptr<msg_proc> sptr;
+      typedef boost::shared_ptr<msg_hdr_tail> sptr;
 
       /*!
-       * \brief Return a shared_ptr to a new instance of sandbox::msg_proc.
+       * \brief Return a shared_ptr to a new instance of sandbox::msg_hdr_tail.
        *
-       * To avoid accidental use of raw pointers, sandbox::msg_proc's
+       * To avoid accidental use of raw pointers, sandbox::msg_hdr_tail's
        * constructor is in a private implementation
-       * class. sandbox::msg_proc::make is the public interface for
+       * class. sandbox::msg_hdr_tail::make is the public interface for
        * creating new instances.
        */
       static sptr make();
@@ -52,5 +52,5 @@ namespace gr {
   } // namespace sandbox
 } // namespace gr
 
-#endif /* INCLUDED_SANDBOX_MSG_PROC_H */
+#endif /* INCLUDED_SANDBOX_MSG_HDR_TAIL_H */
 
