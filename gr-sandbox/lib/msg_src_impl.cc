@@ -9,20 +9,13 @@
 #include <iostream>
 
 namespace gr {
-  namespace sandbox {
+  	namespace sandbox {
 
-    msg_src::sptr
-    msg_src::make()
-    {
-      return gnuradio::get_initial_sptr
-        (new msg_src_impl());
-    }
+    		msg_src::sptr msg_src::make()
+    		{return gnuradio::get_initial_sptr(new msg_src_impl());}
 
-    /*
-     * The private constructor
-     */
-    msg_src_impl::msg_src_impl()
-      : gr::block("msg_src",
+    		msg_src_impl::msg_src_impl()
+      			: gr::block("msg_src",
               		io_signature::make(0, 0, 0),
               		io_signature::make(0, 0, 0))
     		{
@@ -30,15 +23,17 @@ namespace gr {
       			d_out_port = pmt::mp("out");
       			message_port_register_in(d_in_port);
       			message_port_register_out(d_out_port);
-        		set_msg_handler(d_in_port, boost::bind(&msg_src_impl::calc, this ,_1) );}
-    msg_src_impl::~msg_src_impl()
-    {
-    }
+        		set_msg_handler(d_in_port, boost::bind(&msg_src_impl::calc, this ,_1) );
+		}
+
+    		msg_src_impl::~msg_src_impl() {}
+
     		void msg_src_impl::calc(pmt::pmt_t msg)
     		{
 			////// importing a file //////
 			//char name[7]={'i','n','.','d','a','t','\0'};
 			char name[12]={'i','n','_','n','o','l','f','.','d','a','t','\0'};
+
 			std::ifstream fl(&name[0]);
 			fl.seekg(0, std::ios::end);
 			size_t len1 = fl.tellg();
@@ -73,6 +68,7 @@ namespace gr {
 				gr_vector_const_void_star &input_items,
 				gr_vector_void_star &output_items)
     		{return noutput_items;}
-  } /* namespace sandbox */
+
+  	} /* namespace sandbox */
 } /* namespace gr */
 
