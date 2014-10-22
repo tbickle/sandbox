@@ -12,14 +12,15 @@
 namespace gr {
   namespace sandbox {
 
-    		msg_hdr_fill::sptr msg_hdr_fill::make()
-    		{return gnuradio::get_initial_sptr(new msg_hdr_fill_impl());}
+    		msg_hdr_fill::sptr msg_hdr_fill::make(int fill_max)
+    		{return gnuradio::get_initial_sptr(new msg_hdr_fill_impl(fill_max));}
 
 		// constructor
-    		msg_hdr_fill_impl::msg_hdr_fill_impl() : block("msg_hdr_fill",
+    		msg_hdr_fill_impl::msg_hdr_fill_impl(int fill_max) : block("msg_hdr_fill",
                  	io_signature::make(0, 0, 0),
                  	io_signature::make(0, 0, 0))
     		{
+			d_fill_max=fill_max;
       			d_in_port = pmt::mp("in");
       			d_out_port = pmt::mp("out");
       			message_port_register_in(d_in_port);
@@ -42,7 +43,9 @@ namespace gr {
 			uint8_t hdr[1] = {'1'};
 			printf("len=%i\n",int(len));
 
-			size_t fill_max = 4;	// cannot fill beyond 6 bytes
+			//size_t fill_max = 4;	// cannot fill beyond 6 bytes
+			//int fill_max = 4;	// cannot fill beyond 6 bytes
+			int fill_max = d_fill_max;
 			size_t fill_len = size_t(int(fill_max)-int(len));
 			if(int(fill_len)<0) fill_len=0;
 			uint8_t fill[6] = {'0','1','0','1','0','1'};

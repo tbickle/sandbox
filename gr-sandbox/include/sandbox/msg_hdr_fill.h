@@ -46,7 +46,7 @@ namespace gr {
        * class. sandbox::msg_hdr_fill::make is the public interface for
        * creating new instances.
        */
-      static sptr make();
+      static sptr make(int fill_max);
     };
 
   } // namespace sandbox
