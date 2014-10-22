@@ -24,4 +24,5 @@ todo:
 	** 1025 byte data input
 	** etc
 * needs to work at mod. (63,56)
+* "trigger" input to msg src needs to be removed
 
