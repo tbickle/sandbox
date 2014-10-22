@@ -3,7 +3,13 @@
   <key>sandbox_msg_hdr_fill</key>
   <category>Sandbox</category>
   <import>import sandbox</import>
-  <make>sandbox.msg_hdr_fill()</make>
+  <make>sandbox.msg_hdr_fill($fill_max)</make>
+
+  	<param>
+    		<name>fill max</name>
+    		<key>fill_max</key>
+    		<type>int</type>
+  	</param>
 
 	<sink>
 		<name>in</name>

@@ -6,26 +6,23 @@
 #include <pmt/pmt.h>
 
 namespace gr {
-  namespace sandbox {
+  	namespace sandbox {
 
-    class msg_hdr_fill_impl : public msg_hdr_fill
-    {
+    		class msg_hdr_fill_impl : public msg_hdr_fill
+    		{
     			private:
+			int d_fill_max;
       			pmt::pmt_t d_in_port;
       			pmt::pmt_t d_out_port;
-      			void print_pdu(pmt::pmt_t pdu);
-      			gr::thread::mutex d_mutex;
-      			//std::vector<pmt::pmt_t> d_messages;
 
     			public:
-      			msg_hdr_fill_impl();
+      			msg_hdr_fill_impl(int fill_max);
       			~msg_hdr_fill_impl();
 
-      			//int num_messages();
-      			//pmt::pmt_t get_message(int i);
-    };
+      			void print_pdu(pmt::pmt_t pdu);
+    		};
 
-  } // namespace sandbox
+  	} // namespace sandbox
 } // namespace gr
 
 #endif /* INCLUDED_SANDBOX_MSG_HDR_FILL_IMPL_H */
