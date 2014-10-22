@@ -46,7 +46,7 @@ namespace gr {
        * class. sandbox::msg_div::make is the public interface for
        * creating new instances.
        */
-      static sptr make();
+      static sptr make(int div);
     };
 
   } // namespace sandbox

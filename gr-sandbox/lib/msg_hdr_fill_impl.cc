@@ -38,11 +38,11 @@ namespace gr {
 			size_t len = pmt::length(vector);
 			//printf("length=%i\n",int(len));
 
-			size_t hdr_len = 1;
+			size_t hdr_len = 0;
 			uint8_t hdr[1] = {'1'};
 			printf("len=%i\n",int(len));
 
-			size_t fill_max = 3;	// cannot fill beyond 6 bytes
+			size_t fill_max = 4;	// cannot fill beyond 6 bytes
 			size_t fill_len = size_t(int(fill_max)-int(len));
 			if(int(fill_len)<0) fill_len=0;
 			uint8_t fill[6] = {'0','1','0','1','0','1'};
