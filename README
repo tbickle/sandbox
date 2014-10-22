@@ -10,12 +10,18 @@ completed:
 	** length
 	** data
 * converting between message and streaming domains
-* TC header
+* can add headers and tails of specified lengths and values
 * PDUs can survive msg->stream->msg domain conversions
+* lengths of PDUs can be easily determined in message domain
+* alternating byte fill, starting at 0, up to 6 bytes
 
 todo:
-* have other blocks monitor values of specific pdu keys and condition off of them
-* byte fill
-* cltu start/tail sequences
-* remove start "trigger"
+* header needs length info
+* TC header should be easily configurable
+* division size should be easily configurable
+* easy and well-defined test cases
+	** 1018 byte data input
+	** 1025 byte data input
+	** etc
+* needs to work at mod. (63,56)
 
