@@ -1,9 +1,15 @@
 <block>
-	<name>msg divide</name>
-	<key>sandbox_msg_div</key>
-	<category>Sandbox</category>
-	<import>import sandbox</import>
-  	<make>sandbox.msg_div()</make>
+  <name>msg divide</name>
+  <key>sandbox_msg_div</key>
+  <category>Sandbox</category>
+  <import>import sandbox</import>
+  <make>sandbox.msg_div($div)</make>
+
+  	<param>
+    		<name>divide</name>
+    		<key>div</key>
+    		<type>int</type>
+  	</param>
 
 	<sink>
 		<name>in</name>

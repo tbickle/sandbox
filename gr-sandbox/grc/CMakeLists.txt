@@ -19,7 +19,7 @@
 install(FILES
     sandbox_msg_src.xml
     sandbox_msg_sink.xml
-    sandbox_msg_div.xml
     sandbox_msg_hdr_fill.xml
-    sandbox_msg_hdr_tail.xml DESTINATION share/gnuradio/grc/blocks
+    sandbox_msg_hdr_tail.xml
+    sandbox_msg_div.xml DESTINATION share/gnuradio/grc/blocks
 )

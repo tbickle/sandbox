@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='ASCII'?>
 <?grc format='1' created='3.7.5'?>
 <flow_graph>
-  <timestamp>Mon Oct 20 18:30:56 2014</timestamp>
+  <timestamp>Tue Oct 21 19:17:00 2014</timestamp>
   <block>
     <key>options</key>
     <param>
@@ -1251,6 +1251,33 @@
     </param>
   </block>
   <block>
+    <key>blocks_message_debug</key>
+    <param>
+      <key>id</key>
+      <value>blocks_message_debug_0</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(280, 24)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
     <key>sandbox_msg_src</key>
     <param>
       <key>id</key>
@@ -1296,6 +1323,10 @@
       <value>True</value>
     </param>
     <param>
+      <key>div</key>
+      <value>4</value>
+    </param>
+    <param>
       <key>alias</key>
       <value></value>
     </param>
@@ -1313,38 +1344,11 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(56, 56)</value>
+      <value>(56, 59)</value>
     </param>
     <param>
       <key>_rotation</key>
       <value>180</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_message_debug</key>
-    <param>
-      <key>id</key>
-      <value>blocks_message_debug_0</value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(280, 24)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
     </param>
   </block>
   <block>
@@ -1375,7 +1379,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(40, 96)</value>
+      <value>(40, 104)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1401,12 +1405,6 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>sandbox_msg_src_0</source_block_id>
-    <sink_block_id>sandbox_msg_div_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>in</sink_key>
-  </connection>
-  <connection>
     <source_block_id>blocks_tagged_stream_to_pdu_0</source_block_id>
     <sink_block_id>sandbox_msg_src_0</sink_block_id>
     <source_key>pdus</source_key>
@@ -1429,12 +1427,6 @@
     <sink_block_id>blocks_pdu_to_tagged_stream_1</sink_block_id>
     <source_key>out</source_key>
     <sink_key>pdus</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>sandbox_msg_div_0</source_block_id>
-    <sink_block_id>sandbox_msg_hdr_fill_0</sink_block_id>
-    <source_key>out</source_key>
-    <sink_key>in</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_message_sink_0</source_block_id>
@@ -1573,5 +1565,17 @@
     <sink_block_id>blocks_message_debug_0</sink_block_id>
     <source_key>out</source_key>
     <sink_key>print_pdu</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>sandbox_msg_src_0</source_block_id>
+    <sink_block_id>sandbox_msg_div_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>sandbox_msg_div_0</source_block_id>
+    <sink_block_id>sandbox_msg_hdr_fill_0</sink_block_id>
+    <source_key>out</source_key>
+    <sink_key>in</sink_key>
   </connection>
 </flow_graph>

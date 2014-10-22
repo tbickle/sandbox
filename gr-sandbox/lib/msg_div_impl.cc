@@ -12,14 +12,15 @@
 namespace gr {
 	namespace sandbox {
 
-    		msg_div::sptr msg_div::make()
-    		{return gnuradio::get_initial_sptr(new msg_div_impl());}
+    		msg_div::sptr msg_div::make(int div)
+    		{return gnuradio::get_initial_sptr(new msg_div_impl(div));}
 
 		// constructor
-    		msg_div_impl::msg_div_impl() : block("msg_div",
+    		msg_div_impl::msg_div_impl(int div) : gr::block("msg_div",
                  	io_signature::make(0, 0, 0),
                  	io_signature::make(0, 0, 0))
     		{
+			d_div=div;
       			d_in_port = pmt::mp("in");
       			d_out_port = pmt::mp("out");
       			message_port_register_in(d_in_port);
@@ -38,7 +39,8 @@ namespace gr {
 			/////// size determination //////
 			size_t len = pmt::length(vector);
 			size_t offset(0);
-			int reg_len = 3; 	// <--- USER DEFINED (size of division)
+			//int reg_len = 3; 	// <--- USER DEFINED (size of division)
+			int reg_len = d_div;
 			int last_len = int(len) % reg_len;
 			//printf("last len=%i\n",last_len);
 			offset = size_t(reg_len);
@@ -101,9 +103,9 @@ namespace gr {
 				pmt::pmt_t msg_pair = pmt::cons(meta, output);
 				message_port_pub(d_out_port, msg_pair);
 				volk_free(bytes_out);
-			}
-    		}
 
-  	} /* namespace sandbox */
-} /* namespace gr */
+			} // end for()
+    		} // end print_pdu()
+  	} // end namespace sandbox
+} // end gr
 

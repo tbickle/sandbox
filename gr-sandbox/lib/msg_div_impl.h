@@ -11,15 +11,16 @@ namespace gr {
     		class msg_div_impl : public msg_div
     		{
     			private:
+			int d_div;
       			pmt::pmt_t d_in_port;
       			pmt::pmt_t d_out_port;
-      			void print_pdu(pmt::pmt_t pdu);
-      			gr::thread::mutex d_mutex;
-      			std::vector<pmt::pmt_t> d_messages;
 
     			public:
-      			msg_div_impl();
+      			msg_div_impl(int div);
       			~msg_div_impl();
+
+      			void print_pdu(pmt::pmt_t pdu);
+
     		};
   	} // namespace sandbox
 } // namespace gr
