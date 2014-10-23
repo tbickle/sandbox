@@ -1,4 +1,4 @@
-branch = develop
+branch = tmp_dev
 version = v2.0
 
 completed:
@@ -15,11 +15,11 @@ completed:
 * lengths of PDUs can be easily determined in message domain
 * alternating byte fill, starting at 0, up to 6 bytes
 * division size, and max fill, are both easily accessible
+* header is programmed w/ frame lengths and sequence numbers
 
 todo:
-* header needs length info
 * TC header should be easily configurable
-* * easy and well-defined test cases
+* easy and well-defined test cases
 	** 1018 byte data input
 	** 1025 byte data input
 	** etc
