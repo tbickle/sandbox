@@ -81,3 +81,15 @@ namespace gr {
 			//}
 			//else printf("error\n");
 
+/*
+// pull a key value
+//pmt::pmt_t d_k = pmt::intern("packet_len");
+pmt::pmt_t d_k = pmt::intern("pdu_id");
+//pmt::pmt_t d_k = pmt::intern("pdu_len");
+pmt::pmt_t d_v = pmt::dict_ref(meta,d_k,pmt::PMT_NIL);
+
+printf("is_dict=%i\n",int(pmt::is_dict(meta)));			// is meta a dictionary?
+printf("dict_has_key=%i\n",int(dict_has_key(meta,d_k)));	// does the dict. have key d_k?
+printf("pdu_id="); int(pmt::print(d_v); printf("\n");		// print to stdout
+*/
+
