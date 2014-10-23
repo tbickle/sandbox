@@ -68,11 +68,23 @@ namespace gr {
 			//////////////////////
 
 			/////// fill ////////
-			int fill_max = d_fill_max;
-			size_t fill_len = size_t(int(fill_max)-int(len));
-			if(int(fill_len)<0) fill_len=fill_len*-1;
-			if(int(fill_len)>6) {fill_len=0; printf("error: -1 < fill_size < 7\n");}
+			int fill_len = 0;
 			uint8_t fill[6] = {'0','1','0','1','0','1'};	// alternating sequence that's max 6 bytes
+			// last_seq = ?
+			if(1)
+			//if(last_seq)
+			{
+				if(int(len)%7)
+				{
+					fill_len = 7-(int(len+hdr_len)%7);
+					int fill_max = d_fill_max;
+					//size_t fill_len = size_t(int(fill_max)-int(len));
+					fill_len = size_t(fill_len);
+					if(int(fill_len)<0) fill_len=fill_len*-1;
+					if(int(fill_len)>6) {fill_len=0; printf("error: -1 < fill_size < 7\n");}
+				}
+				// else no fill
+			}
 			/////////////////////
 			
       			const uint8_t* bytes_in = pmt::u8vector_elements(vector, len);
