@@ -41,14 +41,30 @@ namespace gr {
 
 			/////// header ///////
 			size_t hdr_len = 5;
-			uint8_t hdr[5] = {0xFF,0xFF,0xFC,0x00,0x00};
+			uint8_t hdr[5] = {0xFF,0xFF,0xFC,0x00,0x00};	// the 1st 22-bits i'm arbitrarily filling w/ 1's
 			//uint8_t hdr[5] = {0x00,0x00,0x00,0x00,0x00};
 			//printf("len=%i\n",int(len));
 			if(int(len)>-1 && int(len)<1024) {
 				if(int(len)<512) hdr[3]=char(len);
 				else {hdr[2]=char(len>>8);hdr[3]=char(len);}
 			}
-			else printf("error\n");
+			else printf("header error\n");
+
+			// fetch frame sequence value
+			int frm_seq = 0;
+			pmt::pmt_t d_k = pmt::intern("pdu_id");
+			pmt::pmt_t d_v = pmt::dict_ref(meta,d_k,pmt::PMT_NIL);
+			if(pmt::is_dict(meta) && dict_has_key(meta,d_k))
+			{
+				//printf("is_dict=%i\n",int(pmt::is_dict(meta)));			// is meta a dictionary?
+				//printf("dict_has_key=%i\n",int(dict_has_key(meta,d_k)));	// does the dict. have key d_k?
+				//printf("pdu_id="); int(pmt::print(d_v)); printf("\n");		// print to stdout
+				//printf("pdu_id="); pmt::print(d_v); printf("\n");		// print to stdout
+				//printf("pdu_id=%i\n", int(pmt::to_double(d_v)));
+				frm_seq = int(pmt::to_double(d_v));
+			}
+			else printf("pdu error\n");
+			hdr[4] = char(frm_seq);
 			//////////////////////
 
 			/////// fill ////////
@@ -74,12 +90,12 @@ namespace gr {
   	}
 }
 
-			//int test = 1024;
-			//if(int(test)>-1 && int(test)<1024) {
-				//if(int(test)<512) hdr[3]=char(test);
-				//else {hdr[2]=char(test>>8);hdr[3]=char(test);}
-			//}
-			//else printf("error\n");
+//int test = 1024;
+//if(int(test)>-1 && int(test)<1024) {
+	//if(int(test)<512) hdr[3]=char(test);
+	//else {hdr[2]=char(test>>8);hdr[3]=char(test);}
+//}
+//else printf("error\n");
 
 /*
 // pull a key value
@@ -90,6 +106,6 @@ pmt::pmt_t d_v = pmt::dict_ref(meta,d_k,pmt::PMT_NIL);
 
 printf("is_dict=%i\n",int(pmt::is_dict(meta)));			// is meta a dictionary?
 printf("dict_has_key=%i\n",int(dict_has_key(meta,d_k)));	// does the dict. have key d_k?
-printf("pdu_id="); int(pmt::print(d_v); printf("\n");		// print to stdout
+printf("pdu_id=%i\n", int(pmt::to_double(d_v)));
 */
 
