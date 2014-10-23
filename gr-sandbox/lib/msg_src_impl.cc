@@ -32,7 +32,9 @@ namespace gr {
     		{
 			////// importing a file //////
 			//char name[7]={'i','n','.','d','a','t','\0'};
-			char name[12]={'i','n','_','n','o','l','f','.','d','a','t','\0'};
+			//char name[12]={'i','n','_','n','o','l','f','.','d','a','t','\0'};
+			//char name[9]={'t','r','i','g','.','d','a','t','\0'};
+			char name[9]={'t','e','s','t','.','b','i','n','\0'};
 
 			std::ifstream fl(&name[0]);
 			fl.seekg(0, std::ios::end);
