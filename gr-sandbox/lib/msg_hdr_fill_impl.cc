@@ -69,7 +69,7 @@ namespace gr {
 
 			/////// fill ////////
 			int fill_len = 0;
-			uint8_t fill[6] = {'0','1','0','1','0','1'};	// alternating sequence that's max 6 bytes
+			uint8_t fill[6] = {'U','U','U','U','U','U'};	// alternating bit sequence that is max 6 bytes
 			// last_seq = ?
 			if(1)
 			//if(last_seq)
