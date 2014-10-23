@@ -1,4 +1,4 @@
-branch = develop
+branch = tmp_dev
 version = v2.0
 
 completed:
@@ -19,7 +19,7 @@ completed:
 todo:
 * header needs length info
 * TC header should be easily configurable
-* * easy and well-defined test cases
+* easy and well-defined test cases
 	** 1018 byte data input
 	** 1025 byte data input
 	** etc
